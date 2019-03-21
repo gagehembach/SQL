@@ -1,0 +1,7 @@
+SELECT DISTINCT a.persnbr as Person_Number, e.email as Email, a.firstname || ' ' || a.lastname as Full_Name, c.acctnbr as Account#,
+p.areacd || p.exchange || p.phonenbr as Phone#
+from pers a
+full join email e on a.persnbr = e.persorgnbr
+full join acct c on a.persnbr = c.taxrptforpersnbr
+full join persephone p on a.persnbr = p.persnbr
+where c.acctnbr in (###);
